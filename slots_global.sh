@@ -235,7 +235,7 @@ function compareTape(){
 
 
 function usage() {
-	echo "Usage: $0 *[-t TSM Name] [-r ALL|KO]" 1>&2;
+	echo "Usage: $0 *[-t TSM Name] [-r ALL|KO] [-v Volume Name]" 1>&2;
 	echo "-t [required] TSM server name." 1>&2;
 	echo "-r [optional] How results will be shown. ALL or only KO. Default is ALL." 1>&2;
 	echo "-v [optional] Volume name, to check only a single tape." 1>&2;
