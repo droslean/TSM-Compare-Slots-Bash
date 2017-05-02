@@ -40,12 +40,14 @@ function menu() {
 #																				#
 # Arguments 																	#
 #			1 - TSM server 														#
+#			2 - TSM username													#
+#			3 - TSM password 													#
 #																				#
 # Returns the library name 														#
 #																				#
 #################################################################################
 function selectLibrary(){
-  local tsmCmd="dsmadmc -se=$1 -id=operational -pa=rep0rting";
+  local tsmCmd="dsmadmc -se=$1 -id=$2 -pa=$3";
 
   # Get libraries available on TSM server.
   local libraries=$($tsmCmd -dataonly=yes "select LIBRARY_NAME from libraries");
@@ -348,7 +350,7 @@ if $singleTape; then
 
 else
 
-	selectedLibrary=$(selectLibrary $tsmName | tail -1);
+	selectedLibrary=$(selectLibrary $tsmName $tsmUser $tsmPass | tail -1);
 	echo "Selected library is $selectedLibrary";
 
 	# Get all volumes and slots assigned in the selected Library
