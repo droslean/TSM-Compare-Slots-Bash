@@ -153,7 +153,6 @@ function compareAllTapes(){
 	echo "|-----------------------------------------------------------------------|";
 
  	# For each slot, compare the volumes with TSM and the Physical Library.
- 	#for element in "${slotList[@]}"
   	for element in $(echo $slots)
   	do
     	local tsmVolume=$(cat $LibvolumesFile | grep -w $element | awk '{print $1}');
