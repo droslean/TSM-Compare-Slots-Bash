@@ -253,7 +253,7 @@ function usage() {
 echo -e "\e[97m";
 
 # Declare variables
-workDir="/home/Z93425/compareSlotsGIT";
+workDir=$(dirname $0);
 LibraryInventory="$workDir/LibraryInventory";
 LibvolumesFile="$workDir/LibvolumesFile";
 showResult="ALL";
