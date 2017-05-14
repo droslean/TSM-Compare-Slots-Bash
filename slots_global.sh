@@ -158,11 +158,11 @@ function compareAllTapes(){
     	local tsmVolume=$(cat $LibvolumesFile | grep -w $element | awk '{print $1}');
     	local volumeInLibrarySlot=$(cat $LibraryInventory |	sed -n '/Slot Address.* '$element'/,/Volume Tag/p' |tail -1 | awk '{print $4}');
 
-    	if [[ $tsmVolume == "" ]]; then
+    	if [[ -z $tsmVolume]]; then
     		tsmVolume="EMPTY";
     	fi
 
-    	if [[ $volumeInLibrarySlot == "" ]]; then
+    	if [[ -z $volumeInLibrarySlot ]]; then
     		volumeInLibrarySlot="EMPTY";
     	fi
 
@@ -203,7 +203,7 @@ function compareTape(){
 	local mountedVolumes=$4;
 
 	local tsmElement=$(cat $LibvolumesFile | grep $tape | awk '{print $2}');
-	if [[ "$tsmElement" == "" ]]; then
+	if [[ -z $tsmElement ]]; then
 		tsmElement="EMPTY";
 	fi
 
